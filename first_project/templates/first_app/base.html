@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{%load staticfiles%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+           crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+      integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+      crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+
+    <!--css custom -->
+    <link rel="stylesheet" href="{% static 'first_app/css/base.css'%}">
+     <link rel="stylesheet" href="{% static 'first_app/css/buttons.css'%}">
+    <link rel="stylesheet" href="{% static 'first_app/css/center.css'%}">
+    <!--<link rel="stylesheet" href="{% static 'first_app/css/parallex.css'%}">-->
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-logo" href="#"><span><img src="{% static 'first_app/logo22.png' %}"></span></a>
+            </div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a class="navbar-link" href="{% url 'maan' %}">Home</a></li>
+            <li><a class="navbar-link" href="{% url 'index' %}">Announcements</a></li>
+            <li><a class="navbar-link" href="{% url 'first_app:forms_view'%}">Registration</a></li>
+
+                  {% if user.is_authenticated %}
+                         <li><a class="navbar-link" href="{% url 'logout' %}">Logout</a></li>
+                         <li><a class="navbar-link" href="">{{user_info_form.user.username}}<i class="glyphicon glyphicon-user"></i></a></li>
+                  <!--{% else %}{% url 'first_app:user_login'%}-->
+                         <li><a class="navbar-link" href="">Login</a></li>
+                  {%endif%}
+
+              </ul>
+
+        </div>
+    </nav>
+{% block body_block %}
+{% endblock %}
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+
+</body>
+</html>

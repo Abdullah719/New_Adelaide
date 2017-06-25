@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends "first_app/base.html" %}
+{%load staticfiles%}
+{%block body_block%}
+    <title>Signup</title>
+{% if registered %}
+    <h1>thankyou for signup</h1>
+    {%else%}
+<div class="centered">
+    <div class="thumbnail">
+        <div class="caption">
+            <br>
+            <center><img src="{% static 'first_app/logo.png' %}" class="logo1"/></center><br>
+            <br>
+            <form enctype="multipart/form-data" method="POST"  >
+                 {%csrf_token%}
+                 <div class="inner-addon left-addon">
+                     <i class="glyphicon glyphicon-user"></i>
+                    <input type="text" class="form-control" placeholder="Username" name="username" required/>
+                   </div>
+
+                 <div class="inner-addon left-addon">
+                     <i class="glyphicon glyphicon-envelope"></i>
+                     <input type="email" class="form-control" placeholder="email" name="email" required/>
+                 </div>
+
+                <div class="inner-addon left-addon">
+                     <i class="glyphicon glyphicon-lock"></i>
+                     <input class="form-control"  type="password" name="password" placeholder="password" required>
+                 </div>
+                <br>
+                <center><button type="submit" name="button" value="Login"  class="button" ><span>SignUp</span></button></center>
+            </form>
+            {% endif %}
+         </div>
+     </div>
+</div>
+ {% endblock %}
+
+ <!--{{user_info_form.as_p }}-->
+<!--{{user_pro.as_p }}-->

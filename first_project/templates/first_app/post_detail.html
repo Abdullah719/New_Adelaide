@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "first_app/base.html" %}
+{%block body_block %}
+<title>Post_detail</title>
+
+<div class="container">
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1>{{instance.title}} <small>{{instance.timestamp}}</small></h1><br>
+         {% if instance.image%}
+        <img src="{{instance.image.url}}" class="img-responsive"/>
+        {%endif%}
+        {{instance.content | linebreaks}}<br>
+        <br>
+            </div>
+</div>
+{%endblock%}
+

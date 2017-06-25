@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+{% extends 'first_app/base.html'%}
+{%block body_block%}
+{%load staticfiles%}
+<title>Login</title>
+<div class="col-sm-5 col-sm-offset-5">
+    <div class="row">
+          <div class="col-sm-11">
+              <div class="centered">
+                  <form action="{% url 'first_app:user_login' %}" class="form-inline" method="POST">
+                      <div class="form-group">
+                          <div  class="thumbnail">
+                              <div class="caption">
+                                  <center><img src="{% static 'first_app/logo.png' %}" class="logo1"/></center><br>
+                                      {%csrf_token%}
+                                      <div class="inner-addon left-addon">
+                                          <i class="glyphicon glyphicon-user"></i>
+                                          <center><input type="text" class="form-control" placeholder="Username" name="username" required/></center>
+                                      </div>
+
+                                      <div class="inner-addon left-addon">
+                                          <i class="glyphicon glyphicon-lock"></i>
+                                          <center><input class="form-control"  type="password" name="password" placeholder="password" required></center>
+                                      </div>
+                                      <br>
+                                      <center><button type="submit" name="button" value="Login"  class="button" ><span>Login</span></button></center>
+                              </div>
+                           </div>
+                      </div>
+                          <!--<label for="username">Name:</label>-->
+                          <!--<input class="form-control" type="text" name="username" placeholder="Name">-->
+                          <!--<br>-->
+                          <!--<label for="password">Password:</label>-->
+                          <!--<input class="form-control"  type="password" name="password" placeholder="password">-->
+                          <!--<br>-->
+                          <!--<input type="submit" name="" value="Login" class="btn btn-primary" role="button">-->
+                   </form>
+
+               </div>
+          </div>
+    </div>
+
+</div>
+
+
+{%endblock%}
